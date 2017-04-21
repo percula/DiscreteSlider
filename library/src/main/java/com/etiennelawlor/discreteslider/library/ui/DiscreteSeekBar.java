@@ -1,11 +1,8 @@
 package com.etiennelawlor.discreteslider.library.ui;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.util.AttributeSet;
-import android.view.View;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.SeekBar;
 
 /**
@@ -77,17 +74,17 @@ public class DiscreteSeekBar extends AppCompatSeekBar {
                     newProgress = (int)(((oldProgress/(int)stepSize))*stepSize);
                 }
 
-                if(fromUserCount>1){ // SeekBar Dragged
-                    ObjectAnimator animation = ObjectAnimator.ofInt(seekBar, PROGRESS_PROPERTY, oldProgress, newProgress);
-                    animation.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
-                    animation.setInterpolator(new DecelerateInterpolator());
-                    animation.start();
-                } else { // SeekBar Clicked
-                    ObjectAnimator animation = ObjectAnimator.ofInt(seekBar, PROGRESS_PROPERTY, superOldProgress, newProgress);
-                    animation.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
-                    animation.setInterpolator(new DecelerateInterpolator());
-                    animation.start();
-                }
+//                if(fromUserCount>1){ // SeekBar Dragged
+//                    ObjectAnimator animation = ObjectAnimator.ofInt(seekBar, PROGRESS_PROPERTY, oldProgress, newProgress);
+//                    animation.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
+//                    animation.setInterpolator(new DecelerateInterpolator());
+//                    animation.start();
+//                } else { // SeekBar Clicked
+//                    ObjectAnimator animation = ObjectAnimator.ofInt(seekBar, PROGRESS_PROPERTY, superOldProgress, newProgress);
+//                    animation.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
+//                    animation.setInterpolator(new DecelerateInterpolator());
+//                    animation.start();
+//                }
 
                 fromUserCount = 0;
                 if(onDiscreteSeekBarChangeListener != null){
